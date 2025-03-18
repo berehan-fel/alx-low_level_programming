@@ -21,9 +21,7 @@ char *_strstr(char *haystack, char *needle)
 
 			for (; needle[j] && haystack[tmp]; j++, tmp++)
 			{
-				if (haystack[tmp] == needle[j])
-					continue;
-				else
+				if (haystack[tmp] != needle[j])
 					break;
 			}
 			if (!needle[j])
