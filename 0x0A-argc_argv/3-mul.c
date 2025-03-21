@@ -72,5 +72,5 @@ int main(int argc, char *argv[])
 	num2 = atoi(argv[2]);
 	mul = num1 * num2;
 	printf("%d\n", mul);
-	return (mul);
+	return (0);
 }
