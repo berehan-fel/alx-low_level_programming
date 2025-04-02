@@ -65,32 +65,33 @@ void print_string(va_list list)
 void print_all(const char * const format, ...)
 {
 	va_list list;
-	unsigned int i = 0, j = 0;
+	unsigned int i = 0, j;
+	char *separator = "";
 	printer p1[] = {
 		{'c', print_char},
 		{'i', print_int},
 		{'f', print_float},
 		{'s', print_string},
-		{0, 0}
+		{0, NULL}
 	};
-	char *sep = "";
 
 	va_start(list, format);
 
-	while (format[i])
+	while (format && format[i])
 	{
 		j = 0;
-		while (p1[j].data_type != 0)
+
+		while (p1[j].data_type)
 		{
 			if (format[i] == p1[j].data_type)
 			{
-				printf("%s", sep);
+				printf("%s", separator);
 				p1[j].f(list);
+				separator = ", ";
 				break;
 			}
 			j++;
 		}
-		sep = ", ";
 		i++;
 	}
 	printf("\n");
