@@ -11,7 +11,7 @@
 typedef struct handle_print
 {
 	char data_type;
-	void (*f)(va_list list, char *s);
+	void (*f)(va_list list);
 } printer;
 
 int sum_them_all(const unsigned int n, ...);

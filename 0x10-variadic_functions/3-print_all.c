@@ -6,58 +6,54 @@
 /**
  * print_char - prints a character.
  * @list: a va_list containing the next argument.
- * @separator: a string that separates words.
  */
 
-void print_char(va_list list, char *separator)
+void print_char(va_list list)
 {
 	char c = va_arg(list, int);
 
-	printf("%s%c", separator, c);
+	printf("%c", c);
 }
 
 /**
  * print_int - prints an integer.
  * @list: a va_list containing the next argument.
- * @separator: a string that separates words.
  */
 
-void print_int(va_list list, char *separator)
+void print_int(va_list list)
 {
 	int n = va_arg(list, int);
 
-	printf("%s%d", separator, n);
+	printf("%d", n);
 }
 
 /**
  * print_float - prints a floating point number.
  * @list: a va_list containing the next argument.
- * @separator: a string that separates words.
  */
 
-void print_float(va_list list, char *separator)
+void print_float(va_list list)
 {
 	float f = va_arg(list, double);
 
-	printf("%s%f", separator, f);
+	printf("%f", f);
 }
 
 /**
  * print_string - prints a string.
  * @list: a va_list containing the next argument.
- * @separator: a string that separates words.
  */
 
-void print_string(va_list list, char *separator)
+void print_string(va_list list)
 {
 	char *s = va_arg(list, char *);
 
 	if (s == NULL)
 	{
-		printf("%s(nil)", separator);
+		printf("(nil)");
 		return;
 	}
-	printf("%s%s", separator, s);
+	printf("%s", s);
 }
 
 /**
@@ -88,7 +84,8 @@ void print_all(const char * const format, ...)
 		{
 			if (format[i] == p1[j].data_type)
 			{
-				p1[j].f(list, sep);
+				printf("%s", sep);
+				p1[j].f(list);
 				break;
 			}
 			j++;
