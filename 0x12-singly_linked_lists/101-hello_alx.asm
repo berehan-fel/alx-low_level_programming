@@ -1,14 +1,19 @@
 section .data
-    msg db "Hello, ALX", 10, 0
+    hello db 'Hello, ALX', 0xA, 0
 
 section .text
     global main
     extern printf
 
 main:
-    mov rdi, msg
+    push rbp
+    mov rbp, rsp
+
+    mov rdi, hello
+    xor eax, eax
     call printf
 
-    mov rax, 60
-    xor rdi, rdi
-    syscall
+    mov rsp, rbp
+    pop rbp
+    xor eax, eax
+    ret
