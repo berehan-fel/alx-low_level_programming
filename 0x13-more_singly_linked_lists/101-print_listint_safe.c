@@ -17,7 +17,6 @@ void print(const listint_t *head, const listint_t *slow, size_t *nodesptr)
 		(*nodesptr)++;
 	}
 	printf("-> [%p] %d\n", (void *)(slow->next), slow->next->n);
-	(*nodesptr)++;
 }
 /**
  * print_listint_safe - prints a linked list, safe for a loop.
