@@ -36,8 +36,6 @@ size_t print_listint_safe(const listint_t *head)
 	const listint_t *slow = head;
 	size_t nodes = 0;
 
-	if (head == NULL)
-		exit(98);
 	if (head->next == head)
 	{
 		printf("[%p] %d\n", (void *)head, head->n);
